@@ -312,23 +312,23 @@ import Layout from '../layouts/Layout.astro';
 			<div class="how-steps">
 				<div class="how-step">
 					<div class="step-num">1</div>
-					<div class="step-body">
+					<div>
 						<h4>Consultá y cotizá</h4>
-						<p>Envianos un mensaje por WhatsApp describiendo tu hogar o comercio. Te asesoramos sin cargo y preparamos una propuesta personalizada.</p>
+						<p class="app-desc">Envianos un mensaje por WhatsApp describiendo tu hogar o comercio. Te asesoramos sin cargo y preparamos una propuesta personalizada.</p>
 					</div>
 				</div>
 				<div class="how-step">
 					<div class="step-num">2</div>
-					<div class="step-body">
+					<div>
 						<h4>Instalación profesional</h4>
-						<p>Nuestros técnicos certificados realizan la instalación completa. Alarma, cámaras y/o cerco eléctrico según lo que necesites, con garantía incluida.</p>
+						<p class="app-desc">Nuestros técnicos certificados realizan la instalación completa. Alarma, cámaras y/o cerco eléctrico según lo que necesites, con garantía incluida.</p>
 					</div>
 				</div>
 				<div class="how-step">
 					<div class="step-num">3</div>
-					<div class="step-body">
+					<div>
 						<h4>Monitoreo activo 24hs</h4>
-						<p>Tu sistema queda conectado a nuestra central. Cualquier evento activa el protocolo de respuesta de forma automática e inmediata.</p>
+						<p class="app-desc">Tu sistema queda conectado a nuestra central. Cualquier evento activa el protocolo de respuesta de forma automática e inmediata.</p>
 					</div>
 				</div>
 			</div>
@@ -434,17 +434,48 @@ import Layout from '../layouts/Layout.astro';
 	</a>
 
 	<style>
+		/* ═══════════════════════════════════════════════════
+		   PALETA DE COLORES — GMS Seguridad
+		   ───────────────────────────────────────────────────
+		   --bg            Fondo principal (hero, nav)      → negro azulado profundo
+		   --surface       Fondo de secciones alternas      → gris pedido por el cliente
+		   --card          Fondo de tarjetas (sobre gris)   → blanco con transparencia
+		   --accent        Azul principal del logo          → #1a6bbd
+		   --accent-light  Azul hover/links sobre gris      → #1558a0 (más oscuro, legible sobre gris)
+		   --accent2       Texto descriptivo sobre gris     → #1a2a3a (azul muy oscuro, legible)
+		   --text          Texto principal sobre oscuro     → blanco suave
+		   --text-on-gray  Texto principal sobre gris       → #0f1a26 (casi negro)
+		   --muted         Texto secundario sobre oscuro    → gris azulado
+		   --muted-on-gray Texto secundario sobre gris      → #3a4a5a (gris oscuro)
+		   --border        Bordes sobre fondo oscuro        → blanco 7%
+		   --border-gray   Bordes sobre fondo gris          → negro 12%
+		   --border-accent Bordes con acento azul           → azul 40%
+		   ═══════════════════════════════════════════════════ */
 		:root {
+			/* Azul exacto del logo GMS */
+			--logo-blue: #1a5c8a;
+
 			--bg: #060a10;
-			--surface: #999999; 0a0f18
-			--card: #0d1520;
-			--accent: #1a6bbd;       /* azul logo GMS */
-			--accent-light: #2d8de8; /* azul más brillante para hovers */
-			--accent2: #0000FF;      /* celeste complementario */
+			--surface: #9a9a9a;
+			--card: #0d1825;
+			--card-on-gray: rgba(255,255,255,0.92);
+
+			/* Sobre fondo OSCURO (hero / nav) */
+			--accent: #1a5c8a;
+			--accent-light: #2272aa;        /* hover sobre oscuro: azul logo un poco más claro */
+			--accent2: #5a9fc2;             /* texto descriptivo sobre oscuro: azul medio visible */
+
+			/* Sobre fondo GRIS */
+			--accent-on-gray: #14496e;      /* azul logo oscuro, alto contraste sobre gris */
+			--accent-hover-gray: #1a5c8a;   /* hover sobre gris */
+
 			--text: #e8edf5;
-			--muted: #6b7a90;
-			--border: rgba(255,255,255,0.06);
-			--border-accent: rgba(26,107,189,0.3);
+			--text-on-gray: #0d1a26;
+			--muted: #6a8faa;
+			--muted-on-gray: #3a4e5e;
+			--border: rgba(255,255,255,0.07);
+			--border-gray: rgba(0,0,0,0.13);
+			--border-accent: rgba(26,92,138,0.35);
 		}
 
 		*, *::before, *::after {
@@ -486,7 +517,6 @@ import Layout from '../layouts/Layout.astro';
 			height: 52px;
 			width: auto;
 			object-fit: contain;
-			/* logo tiene fondo blanco, le damos padding y border-radius sutil */
 			background: #fff;
 			border-radius: 8px;
 			padding: 3px 6px;
@@ -647,7 +677,7 @@ import Layout from '../layouts/Layout.astro';
 		}
 		.hero h1 em {
 			font-style: normal;
-			background: linear-gradient(135deg, var(--accent-light), var(--accent2));
+			background: linear-gradient(135deg, #4a9fd4, #1a5c8a);
 			-webkit-background-clip: text;
 			-webkit-text-fill-color: transparent;
 		}
@@ -689,7 +719,7 @@ import Layout from '../layouts/Layout.astro';
 		.btn-primary:hover {
 			transform: translateY(-2px);
 			background: var(--accent-light);
-			box-shadow: 0 0 45px rgba(45,142,232,0.45);
+			box-shadow: 0 0 45px rgba(58,158,255,0.45);
 		}
 
 		.btn-ghost {
@@ -725,7 +755,7 @@ import Layout from '../layouts/Layout.astro';
 			font-family: 'Syne', sans-serif;
 			font-size: 2.2rem;
 			font-weight: 800;
-			color: var(--accent2);
+			color: #4a9fd4;
 		}
 		.stat-label {
 			font-size: 0.82rem;
@@ -745,7 +775,7 @@ import Layout from '../layouts/Layout.astro';
 		}
 
 		.about-desc {
-			color: var(--muted);
+			color: var(--muted-on-gray);
 			font-size: 0.97rem;
 			line-height: 1.75;
 			margin-bottom: 1.2rem;
@@ -763,12 +793,15 @@ import Layout from '../layouts/Layout.astro';
 			align-items: flex-start;
 			gap: 1rem;
 			padding: 1.2rem 1.4rem;
-			background: var(--card);
-			border: 1px solid var(--border);
+			background: var(--card-on-gray);
+			border: 1px solid var(--border-gray);
 			border-radius: 10px;
-			transition: border-color 0.3s;
+			transition: border-color 0.3s, box-shadow 0.3s;
 		}
-		.about-value:hover { border-color: var(--border-accent); }
+		.about-value:hover { 
+			border-color: var(--accent-on-gray); 
+			box-shadow: 0 4px 20px rgba(26,107,189,0.12);
+		}
 		.value-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 0.1rem; }
 		.about-value strong {
 			display: block;
@@ -776,8 +809,9 @@ import Layout from '../layouts/Layout.astro';
 			font-weight: 700;
 			font-size: 0.95rem;
 			margin-bottom: 0.25rem;
+			color: var(--text-on-gray);
 		}
-		.about-value p { font-size: 0.84rem; color: var(--muted); line-height: 1.5; }
+		.about-value p { font-size: 0.84rem; color: var(--muted-on-gray); line-height: 1.5; }
 
 		.about-visual {
 			position: relative;
@@ -794,14 +828,15 @@ import Layout from '../layouts/Layout.astro';
 			pointer-events: none;
 		}
 		.about-card-main {
-			background: var(--card);
-			border: 1px solid var(--border-accent);
+			background: var(--card-on-gray);
+			border: 1px solid rgba(26,107,189,0.3);
 			border-radius: 16px;
 			padding: 2.5rem 2rem;
 			text-align: center;
 			position: relative;
 			z-index: 1;
 			min-width: 220px;
+			box-shadow: 0 8px 32px rgba(0,0,0,0.12);
 		}
 		.about-card-icon { font-size: 3rem; margin-bottom: 1rem; }
 		.about-card-label {
@@ -809,27 +844,28 @@ import Layout from '../layouts/Layout.astro';
 			font-weight: 800;
 			font-size: 1.1rem;
 			margin-bottom: 0.3rem;
+			color: var(--text-on-gray);
 		}
 		.about-card-sub {
 			font-size: 0.82rem;
-			color: var(--accent-light);
+			color: var(--accent-on-gray);
 			letter-spacing: 0.06em;
 		}
 
 		.about-pill {
 			position: absolute;
-			background: var(--card);
-			border: 1px solid var(--border);
+			background: var(--card-on-gray);
+			border: 1px solid var(--border-gray);
 			border-radius: 100px;
 			padding: 0.5rem 1.1rem;
 			font-size: 0.8rem;
-			color: var(--text);
+			color: var(--text-on-gray);
 			display: flex;
 			align-items: center;
 			gap: 0.5rem;
 			white-space: nowrap;
 			z-index: 2;
-			backdrop-filter: blur(8px);
+			box-shadow: 0 2px 12px rgba(0,0,0,0.1);
 		}
 		.pill-dot {
 			width: 7px; height: 7px;
@@ -858,13 +894,31 @@ import Layout from '../layouts/Layout.astro';
 			font-size: clamp(1.8rem, 4vw, 2.8rem);
 			font-weight: 800;
 			line-height: 1.1;
+			color: var(--text);
 		}
 		.section-sub {
-			color: var(--muted);
+			color: var(--accent2);
 			font-size: 1rem;
 			line-height: 1.7;
 			max-width: 50ch;
 			margin-top: 0.8rem;
+		}
+
+		/* Overrides para secciones con fondo gris */
+		#nosotros .section-tag,
+		#galeria .section-tag,
+		#como-funciona .section-tag {
+			color: var(--accent-on-gray);
+		}
+		#nosotros .section-title,
+		#galeria .section-title,
+		#como-funciona .section-title {
+			color: var(--text-on-gray);
+		}
+		#nosotros .section-sub,
+		#galeria .section-sub,
+		#como-funciona .section-sub {
+			color: var(--muted-on-gray);
 		}
 
 		/* ── SERVICES ── */
@@ -876,13 +930,13 @@ import Layout from '../layouts/Layout.astro';
 			display: grid;
 			grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 			gap: 1.5px;
-			background: var(--border);
-			border: 1px solid var(--border);
+			background: var(--border-gray);
+			border: 1px solid var(--border-gray);
 			border-radius: 12px;
 			overflow: hidden;
 		}
 		.service-card {
-			background: var(--card);
+			background: var(--card-on-gray);
 			padding: 2.4rem 2rem;
 			position: relative;
 			overflow: hidden;
@@ -894,17 +948,17 @@ import Layout from '../layouts/Layout.astro';
 			position: absolute;
 			top: 0; left: 0; right: 0;
 			height: 2px;
-			background: linear-gradient(90deg, transparent, var(--accent-light), transparent);
+			background: linear-gradient(90deg, transparent, var(--logo-blue), transparent);
 			transform: scaleX(0);
 			transition: transform 0.4s;
 		}
-		.service-card:hover { background: #10192a; }
+		.service-card:hover { background: #f0f4f8; }
 		.service-card:hover::before { transform: scaleX(1); }
 
 		.service-icon {
 			width: 52px; height: 52px;
-			background: rgba(26,107,189,0.1);
-			border: 1px solid var(--border-accent);
+			background: rgba(26,92,138,0.08);
+			border: 1px solid rgba(26,92,138,0.25);
 			border-radius: 12px;
 			display: flex;
 			align-items: center;
@@ -917,17 +971,23 @@ import Layout from '../layouts/Layout.astro';
 			font-weight: 700;
 			font-size: 1.1rem;
 			margin-bottom: 0.8rem;
+			color: var(--text-on-gray);
 		}
-		.service-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.65; }
+		.service-card p { font-size: 0.9rem; color: var(--muted-on-gray); line-height: 1.65; }
 		.service-num {
 			position: absolute;
 			top: 1.5rem; right: 1.8rem;
 			font-family: 'Syne', sans-serif;
 			font-size: 3rem;
 			font-weight: 800;
-			color: rgba(255,255,255,0.03);
+			color: rgba(26,92,138,0.06);
 			line-height: 1;
 		}
+
+		/* section-tag / title / sub overrides for servicios on gray */
+		#servicios .section-tag { color: var(--accent-on-gray); }
+		#servicios .section-title { color: var(--text-on-gray); }
+		#servicios .section-sub { color: var(--muted-on-gray); }
 
 		/* ── GALLERY ── */
 		#galeria { background: var(--surface); }
@@ -976,7 +1036,7 @@ import Layout from '../layouts/Layout.astro';
 			align-items: center;
 			gap: 0.3rem;
 			background: rgba(26,107,189,0.2);
-			border: 1px solid rgba(45,142,232,0.35);
+			border: 1px solid rgba(58,158,255,0.35);
 			color: var(--accent2);
 			font-size: 0.72rem;
 			font-weight: 600;
@@ -1053,14 +1113,18 @@ import Layout from '../layouts/Layout.astro';
 			align-items: center;
 		}
 
+		/* section-tag / title overrides for app on gray */
+		#app .section-tag { color: var(--accent-on-gray); }
+		#app .section-title { color: var(--text-on-gray); }
+
 		.app-desc {
-			color: var(--muted);
+			color: var(--muted-on-gray);
 			font-size: 0.97rem;
 			line-height: 1.75;
 			margin-bottom: 2rem;
 		}
 		.app-desc strong {
-			color: var(--accent-light);
+			color: var(--accent-on-gray);
 		}
 
 		.app-features {
@@ -1074,13 +1138,14 @@ import Layout from '../layouts/Layout.astro';
 			align-items: flex-start;
 			gap: 1rem;
 			padding: 1rem 1.2rem;
-			background: var(--card);
-			border: 1px solid var(--border);
+			background: var(--card-on-gray);
+			border: 1px solid var(--border-gray);
 			border-radius: 10px;
-			transition: border-color 0.3s;
+			transition: border-color 0.3s, box-shadow 0.3s;
 		}
 		.app-feature:hover {
-			border-color: var(--border-accent);
+			border-color: rgba(26,92,138,0.35);
+			box-shadow: 0 4px 16px rgba(26,92,138,0.1);
 		}
 		.app-feature-icon {
 			font-size: 1.3rem;
@@ -1093,10 +1158,11 @@ import Layout from '../layouts/Layout.astro';
 			font-weight: 700;
 			font-size: 0.9rem;
 			margin-bottom: 0.2rem;
+			color: var(--text-on-gray);
 		}
 		.app-feature p {
 			font-size: 0.82rem;
-			color: var(--muted);
+			color: var(--muted-on-gray);
 			line-height: 1.5;
 		}
 
@@ -1110,9 +1176,9 @@ import Layout from '../layouts/Layout.astro';
 			display: inline-flex;
 			align-items: center;
 			gap: 0.6rem;
-			background: var(--card);
-			border: 1px solid var(--border-accent);
-			color: var(--text);
+			background: var(--card-on-gray);
+			border: 1px solid rgba(26,92,138,0.3);
+			color: var(--text-on-gray);
 			font-family: 'Syne', sans-serif;
 			font-weight: 700;
 			font-size: 0.85rem;
@@ -1121,12 +1187,19 @@ import Layout from '../layouts/Layout.astro';
 			cursor: default;
 			transition: border-color 0.2s, background 0.2s;
 		}
+		.app-badge a {
+			color: var(--text-on-gray);
+			text-decoration: none;
+			display: flex;
+			align-items: center;
+			gap: 0.6rem;
+		}
 		.app-badge:hover {
-			background: rgba(26,107,189,0.08);
-			border-color: var(--accent-light);
+			background: rgba(26,92,138,0.08);
+			border-color: var(--accent-on-gray);
 		}
 
-		/* ── PHONE MOCKUP ── */
+		/* ── APP IMAGE ── */
 		.app-visual {
 			position: relative;
 			display: flex;
@@ -1134,197 +1207,14 @@ import Layout from '../layouts/Layout.astro';
 			justify-content: center;
 			min-height: 520px;
 		}
-
-		.phone-mockup {
+		.app-image {
+			max-width: 100%;
+			max-height: 500px;
+			object-fit: contain;
+			border-radius: 16px;
 			position: relative;
 			z-index: 2;
-		}
-
-		.phone-frame {
-			width: 240px;
-			background: #0a0f18;
-			border: 2px solid rgba(26,107,189,0.4);
-			border-radius: 36px;
-			padding: 14px 10px 18px;
-			box-shadow:
-				0 0 0 1px rgba(255,255,255,0.04),
-				0 30px 80px rgba(0,0,0,0.6),
-				0 0 60px rgba(26,107,189,0.12);
-			position: relative;
-		}
-
-		.phone-notch {
-			width: 80px;
-			height: 18px;
-			background: #060a10;
-			border-radius: 0 0 14px 14px;
-			margin: 0 auto 10px;
-			position: relative;
-			z-index: 2;
-		}
-
-		.phone-screen {
-			background: #0d1b35;
-			border-radius: 20px;
-			overflow: hidden;
-			min-height: 380px;
-			display: flex;
-			flex-direction: column;
-		}
-
-		.screen-header {
-			background: #0a1628;
-			padding: 10px 14px 8px;
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
-		}
-		.screen-logo {
-			background: #1a4a80;
-			color: #fff;
-			font-family: 'Syne', sans-serif;
-			font-weight: 800;
-			font-size: 0.65rem;
-			padding: 3px 8px;
-			border-radius: 4px;
-			letter-spacing: 0.08em;
-		}
-		.screen-header span {
-			font-size: 0.65rem;
-			color: rgba(255,255,255,0.5);
-		}
-
-		.screen-sos {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			padding: 14px 0 10px;
-			background: #0a1628;
-			gap: 4px;
-		}
-		.sos-btn {
-			width: 68px;
-			height: 68px;
-			border-radius: 50%;
-			background: radial-gradient(circle at 35% 35%, #ff4444, #cc0000);
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			font-family: 'Syne', sans-serif;
-			font-weight: 900;
-			font-size: 1rem;
-			color: #fff;
-			box-shadow: 0 0 20px rgba(255,50,50,0.4), inset 0 1px 0 rgba(255,255,255,0.15);
-			letter-spacing: 0.05em;
-		}
-		.screen-sos span {
-			font-size: 0.55rem;
-			color: rgba(255,255,255,0.6);
-			letter-spacing: 0.1em;
-		}
-
-		.screen-grid {
-			display: grid;
-			grid-template-columns: 1fr 1fr;
-			gap: 6px;
-			padding: 8px 10px;
-			flex: 1;
-		}
-		.screen-btn {
-			background: #1a3a6b;
-			border-radius: 10px;
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			justify-content: center;
-			gap: 4px;
-			padding: 12px 6px;
-			cursor: default;
-		}
-		.screen-btn-icon {
-			font-size: 1.2rem;
-		}
-		.screen-btn span:last-child {
-			font-size: 0.48rem;
-			color: rgba(255,255,255,0.8);
-			letter-spacing: 0.06em;
-			text-align: center;
-			line-height: 1.2;
-		}
-
-		.screen-nav {
-			background: #0a1628;
-			padding: 8px 14px;
-			display: flex;
-			justify-content: space-around;
-			font-size: 0.85rem;
-			border-top: 1px solid rgba(255,255,255,0.05);
-		}
-
-		.phone-glow {
-			position: absolute;
-			bottom: -30px;
-			left: 50%;
-			transform: translateX(-50%);
-			width: 160px;
-			height: 60px;
-			background: rgba(26,107,189,0.25);
-			filter: blur(30px);
-			border-radius: 50%;
-			z-index: 1;
-		}
-
-		/* Pills flotantes */
-		.app-pill {
-			position: absolute;
-			background: var(--card);
-			border: 1px solid var(--border-accent);
-			border-radius: 100px;
-			padding: 0.45rem 1rem;
-			font-size: 0.78rem;
-			color: var(--text);
-			display: flex;
-			align-items: center;
-			gap: 0.5rem;
-			white-space: nowrap;
-			backdrop-filter: blur(8px);
-			z-index: 3;
-		}
-		.pill-blink {
-			width: 7px;
-			height: 7px;
-			border-radius: 50%;
-			background: #25d366;
-			animation: blink 1.5s infinite;
-			flex-shrink: 0;
-		}
-		.app-pill-1 { top: 12%; left: 2%; }
-		.app-pill-2 { bottom: 30%; right: 0%; }
-		.app-pill-3 { top: 55%; left: 0%; }
-
-		@media (max-width: 900px) {
-			.app-grid {
-				grid-template-columns: 1fr;
-				gap: 3rem;
-			}
-			.app-visual {
-				order: -1;
-				min-height: 420px;
-			}
-		}
-
-		@media (max-width: 480px) {
-			.app-visual {
-				min-height: 360px;
-			}
-			.phone-frame {
-				width: 200px;
-			}
-			.sos-btn {
-				width: 56px;
-				height: 56px;
-				font-size: 0.85rem;
-			}
+			filter: drop-shadow(0 20px 60px rgba(26,107,189,0.2));
 		}
 
 		/* ── HOW ── */
@@ -1343,32 +1233,38 @@ import Layout from '../layouts/Layout.astro';
 			display: flex;
 			gap: 1.5rem;
 			padding: 1.8rem 0;
-			border-bottom: 1px solid var(--border);
+			border-bottom: 1px solid var(--border-gray);
 		}
 		.step-num {
 			width: 40px; height: 40px;
 			flex-shrink: 0;
 			border-radius: 50%;
-			border: 1px solid var(--border-accent);
+			border: 1px solid rgba(26,107,189,0.5);
 			display: flex;
 			align-items: center;
 			justify-content: center;
 			font-family: 'Syne', sans-serif;
 			font-weight: 800;
 			font-size: 0.85rem;
-			color: var(--accent-light);
+			color: var(--accent-on-gray);
 		}
-		.step-body h4 {
+		.how-step h4 {
 			font-family: 'Syne', sans-serif;
 			font-weight: 700;
 			font-size: 1rem;
 			margin-bottom: 0.4rem;
+			color: var(--text-on-gray);
 		}
-		.step-body p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
+		.how-step .app-desc { 
+			font-size: 0.88rem; 
+			color: var(--muted-on-gray); 
+			line-height: 1.6;
+			margin-bottom: 0;
+		}
 
 		.how-visual {
-			background: var(--card);
-			border: 1px solid var(--border);
+			background: var(--card-on-gray);
+			border: 1px solid var(--border-gray);
 			border-radius: 16px;
 			padding: 3rem;
 			display: flex;
@@ -1378,6 +1274,7 @@ import Layout from '../layouts/Layout.astro';
 			min-height: 360px;
 			position: relative;
 			overflow: hidden;
+			box-shadow: 0 4px 24px rgba(0,0,0,0.1);
 		}
 		.shield-icon {
 			width: 120px; height: 120px;
@@ -1412,8 +1309,8 @@ import Layout from '../layouts/Layout.astro';
 			margin-top: 2rem;
 			position: relative;
 			z-index: 1;
-			background: rgba(26,107,189,0.1);
-			border: 1px solid var(--border-accent);
+			background: rgba(26,107,189,0.08);
+			border: 1px solid rgba(26,107,189,0.25);
 			border-radius: 8px;
 			padding: 1rem 1.5rem;
 			display: flex;
@@ -1423,15 +1320,20 @@ import Layout from '../layouts/Layout.astro';
 		.blink {
 			width: 8px; height: 8px;
 			border-radius: 50%;
-			background: var(--accent-light);
+			background: var(--accent-on-gray);
 			flex-shrink: 0;
 			animation: blink 1.5s infinite;
 		}
 		@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
-		.monitoring-badge span { font-size: 0.85rem; color: var(--accent-light); font-weight: 500; }
+		.monitoring-badge span { font-size: 0.85rem; color: var(--accent-on-gray); font-weight: 500; }
 
 		/* ── CONTACT ── */
 		#contacto { background: var(--surface); }
+
+		/* section-tag / title overrides for contacto on gray */
+		#contacto .section-tag { color: var(--accent-on-gray); }
+		#contacto .section-title { color: var(--text-on-gray); }
+		#contacto .section-sub { color: var(--muted-on-gray); }
 
 		.contact-grid {
 			display: grid;
@@ -1441,7 +1343,7 @@ import Layout from '../layouts/Layout.astro';
 			align-items: start;
 		}
 		.contact-info p {
-			color: var(--muted);
+			color: var(--muted-on-gray);
 			line-height: 1.7;
 			font-size: 0.95rem;
 			margin-bottom: 2rem;
@@ -1451,13 +1353,13 @@ import Layout from '../layouts/Layout.astro';
 			align-items: center;
 			gap: 0.8rem;
 			font-size: 0.9rem;
-			color: var(--muted);
+			color: var(--muted-on-gray);
 			padding: 0.8rem 0;
-			border-bottom: 1px solid var(--border);
+			border-bottom: 1px solid var(--border-gray);
 		}
 		.contact-detail-icon { font-size: 1.1rem; width: 24px; text-align: center; }
-		.contact-detail a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
-		.contact-detail a:hover { color: var(--accent-light); }
+		.contact-detail a { color: var(--muted-on-gray); text-decoration: none; transition: color 0.2s; }
+		.contact-detail a:hover { color: var(--accent-on-gray); }
 
 		.wa-cta {
 			margin-top: 2rem;
@@ -1478,16 +1380,18 @@ import Layout from '../layouts/Layout.astro';
 		.wa-cta:hover { transform: translateY(-2px); box-shadow: 0 0 45px rgba(37,211,102,0.35); }
 
 		.contact-form {
-			background: var(--card);
-			border: 1px solid var(--border);
+			background: var(--card-on-gray);
+			border: 1px solid var(--border-gray);
 			border-radius: 12px;
 			padding: 2.5rem;
+			box-shadow: 0 4px 24px rgba(0,0,0,0.1);
 		}
 		.contact-form h3 {
 			font-family: 'Syne', sans-serif;
 			font-weight: 700;
 			margin-bottom: 1.5rem;
 			font-size: 1.15rem;
+			color: var(--text-on-gray);
 		}
 		.form-group { margin-bottom: 1.2rem; }
 		.form-group label {
@@ -1495,33 +1399,38 @@ import Layout from '../layouts/Layout.astro';
 			font-size: 0.8rem;
 			letter-spacing: 0.08em;
 			text-transform: uppercase;
-			color: var(--muted);
+			color: var(--muted-on-gray);
 			margin-bottom: 0.4rem;
 		}
 		.form-group input,
 		.form-group select,
 		.form-group textarea {
 			width: 100%;
-			background: var(--bg);
-			border: 1px solid var(--border);
+			background: #f5f7fa;
+			border: 1px solid rgba(0,0,0,0.15);
 			border-radius: 6px;
 			padding: 0.75rem 1rem;
-			color: var(--text);
+			color: var(--text-on-gray);
 			font-family: 'DM Sans', sans-serif;
 			font-size: 0.95rem;
 			outline: none;
 			transition: border-color 0.2s;
 		}
+		.form-group input::placeholder,
+		.form-group textarea::placeholder {
+			color: var(--muted-on-gray);
+			opacity: 0.6;
+		}
 		.form-group input:focus,
 		.form-group select:focus,
-		.form-group textarea:focus { border-color: var(--accent-light); }
+		.form-group textarea:focus { border-color: var(--accent-on-gray); }
 		.form-group textarea { resize: vertical; min-height: 100px; }
-		.form-group select option { background: #0d1520; }
+		.form-group select option { background: #fff; color: var(--text-on-gray); }
 
 		.form-submit {
 			width: 100%;
 			padding: 0.9rem;
-			background: var(--accent);
+			background: var(--accent-on-gray);
 			color: #fff;
 			border: none;
 			cursor: pointer;
@@ -1531,7 +1440,7 @@ import Layout from '../layouts/Layout.astro';
 			border-radius: 6px;
 			transition: background 0.2s, transform 0.2s;
 		}
-		.form-submit:hover { background: var(--accent-light); transform: translateY(-1px); }
+		.form-submit:hover { background: var(--logo-blue); transform: translateY(-1px); }
 		.form-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
 
 		.form-feedback {
@@ -1609,6 +1518,15 @@ import Layout from '../layouts/Layout.astro';
 			.gallery-item.tall { grid-row: span 1; }
 			.gallery-item.wide { grid-column: span 2; }
 			.gallery-overlay { opacity: 1; }
+
+			.app-grid {
+				grid-template-columns: 1fr;
+				gap: 3rem;
+			}
+			.app-visual {
+				order: -1;
+				min-height: 300px;
+			}
 
 			.how-grid { grid-template-columns: 1fr; }
 			.how-visual { display: none; }
