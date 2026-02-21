@@ -101,6 +101,9 @@ import Layout from '../layouts/Layout.astro';
 						</div>
 					</div>
 				</div>
+				<div class="homologacion-badge">
+					<img src="/homologacionPolicia.webp" alt="Homologación Policía de Córdoba N°24" />
+				</div>
 			</div>
 
 			<div class="about-visual">
@@ -875,6 +878,29 @@ import Layout from '../layouts/Layout.astro';
 		.pill-1 { top: 10%; right: -5%; }
 		.pill-2 { bottom: 20%; right: -8%; }
 		.pill-3 { top: 65%; left: -8%; }
+		
+		.homologacion-badge {
+			margin-top: 2rem;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			background: var(--card-on-gray);
+			border: 1px solid var(--border-gray);
+			border-radius: 12px;
+			padding: 1.2rem 2rem;
+			box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+			transition: box-shadow 0.3s;
+			}
+
+			.homologacion-badge:hover {
+			box-shadow: 0 6px 24px rgba(26,92,138,0.15);
+			}
+
+			.homologacion-badge img {
+			height: 100px;
+			width: auto;
+			object-fit: contain;
+		}
 
 		/* ── SECTIONS SHARED ── */
 		section { padding: 6rem 5vw; }
